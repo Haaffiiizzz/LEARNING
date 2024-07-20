@@ -7,8 +7,10 @@ func main() {
 	const tickets int = 50
 	var ticketsLeft uint = 50
 
-	fmt.Println("Welcome to the", name, "booking application")
+	fmt.Println("Welcome to the", conferenceName, "booking application")
 	fmt.Println("There are a total of", tickets, "tickets. There are", ticketsLeft, "left.")
+
+	var bookings []string
 
 	var firstName string
 	var lastName string
@@ -28,7 +30,9 @@ func main() {
 	fmt.Scan(&userTickets)
 
 	ticketsLeft = ticketsLeft - userTickets
+	bookings = append(bookings, firstName+" "+lastName)
 
-	fmt.Printf("Thank you %v %v for booking %v tickets. You'll get a confirmation email at %v \n", firstName, lastName, userTickets, email)\
+	fmt.Printf("Thank you %v %v for booking %v tickets. You'll get a confirmation email at %v \n", firstName, lastName, userTickets, email)
 	fmt.Printf("There are %v tickets remaining for %v.", ticketsLeft, conferenceName)
+	fmt.Printf("All bookings %v: \n", bookings)
 }
