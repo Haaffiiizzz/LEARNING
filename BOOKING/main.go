@@ -3,21 +3,32 @@ package main
 import "fmt"
 
 func main() {
-	var name = "Go Conference"
-	const tickets = 50
-	var ticketsLeft = 50
+	var conferenceName = "Go Conference"
+	const tickets int = 50
+	var ticketsLeft uint = 50
 
 	fmt.Println("Welcome to the", name, "booking application")
 	fmt.Println("There are a total of", tickets, "tickets. There are", ticketsLeft, "left.")
 
-	var userName string
-	var userTickets int
+	var firstName string
+	var lastName string
+	var email string
+	var userTickets uint
 
-	fmt.Scan(&userName)
+	fmt.Println("Enter your first name: ")
+	fmt.Scan(&firstName)
 
-	fmt.Println(&ticketsLeft)
+	fmt.Println("Enter your last name: ")
+	fmt.Scan(&lastName)
 
-	userName = "Fix"
-	userTickets = 2
-	fmt.Println(userName, userTickets)
+	fmt.Println("Enter your email: ")
+	fmt.Scan(&email)
+
+	fmt.Println("Enter number of tickets: ")
+	fmt.Scan(&userTickets)
+
+	ticketsLeft = ticketsLeft - userTickets
+
+	fmt.Printf("Thank you %v %v for booking %v tickets. You'll get a confirmation email at %v \n", firstName, lastName, userTickets, email)\
+	fmt.Printf("There are %v tickets remaining for %v.", ticketsLeft, conferenceName)
 }
