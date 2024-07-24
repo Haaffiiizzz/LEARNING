@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// comments in go
 func main() {
 	var conferenceName = "Go Conference"
 	const tickets int = 50
