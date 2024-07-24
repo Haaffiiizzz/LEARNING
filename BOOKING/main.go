@@ -55,7 +55,7 @@ func main() {
 		fmt.Printf("First names of Bookings are %v: \n", firstNames)
 
 		if ticketsLeft == 0 {
-			fmt.Println("Run out of tickets. COme back next year")
+			fmt.Println("Run out of tickets. Please come back next year")
 			break
 		}
 	}
