@@ -28,7 +28,7 @@ func main() {
 		fmt.Println("Enter your last name: ")
 		fmt.Scan(&lastName)
 
-		fmt.Println("Enter you r email: ")
+		fmt.Println("Enter your email: ")
 		fmt.Scan(&email)
 
 		fmt.Println("Enter number of tickets: ")
@@ -60,7 +60,16 @@ func main() {
 				break
 			}
 		} else {
-			fmt.Println("Your input data is invalid. Try again!")
+			if !isValidName {
+				fmt.Println("First name or last name is invalid.")
+			}
+			if !isValidEmail {
+				fmt.Print("Email is invalid.")
+			}
+			if !isValidTicket {
+				fmt.Println("Number of tickets is invalid.")
+			}
+
 		}
 	}
 
