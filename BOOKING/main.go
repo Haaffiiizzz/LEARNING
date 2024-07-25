@@ -28,11 +28,15 @@ func main() {
 		fmt.Println("Enter your last name: ")
 		fmt.Scan(&lastName)
 
-		fmt.Println("Enter your email: ")
+		fmt.Println("Enter you r email: ")
 		fmt.Scan(&email)
 
 		fmt.Println("Enter number of tickets: ")
 		fmt.Scan(&userTickets)
+
+		isValidName := len(firstName) >= 2 && len(lastName) >= 2
+		isValidEmail := strings.Contains(email, "@")
+		isValidTicke := userTickets > 0 && userTickets <= ticketsLeft
 
 		if userTickets > ticketsLeft {
 			fmt.Printf("We only have %v tickets remaining.\n", ticketsLeft)
@@ -55,7 +59,7 @@ func main() {
 		fmt.Printf("First names of Bookings are %v: \n", firstNames)
 
 		if ticketsLeft == 0 {
-			fmt.Println("Run out of tickets. Please come back next year")
+			fmt.Println("Run out of tickets. Please co me back next year")
 			break
 		}
 	}
