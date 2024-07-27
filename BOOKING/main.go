@@ -6,12 +6,13 @@ import (
 )
 
 // comments in go
+
 func main() {
 	var conferenceName = "Go Conference"
 	const tickets int = 50
 	var ticketsLeft uint = 50
 
-	fmt.Println("Welcome to the", conferenceName, "booking application")
+	greetUser()
 	fmt.Println("There are a total of", tickets, "tickets. There are", ticketsLeft, "left.")
 	var bookings []string
 
@@ -73,4 +74,8 @@ func main() {
 		}
 	}
 
+}
+
+func greetUser() {
+	fmt.Println("Welcome to our conference.")
 }
