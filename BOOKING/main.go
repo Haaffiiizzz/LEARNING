@@ -12,8 +12,8 @@ func main() {
 	const tickets int = 50
 	var ticketsLeft uint = 50
 
-	greetUser()
-	fmt.Println("There are a total of", tickets, "tickets. There are", ticketsLeft, "left.")
+	greetUser(conferenceName, tickets, ticketsLeft)
+
 	var bookings []string
 
 	for {
@@ -76,6 +76,8 @@ func main() {
 
 }
 
-func greetUser() {
-	fmt.Println("Welcome to our conference.")
+func greetUser(conferenceName string, tickets int, ticketsLeft uint) {
+	fmt.Println("Welcome to the", conferenceName, "booking application")
+	fmt.Println("There are a total of", tickets, "tickets. There are", ticketsLeft, "left.")
+	fmt.Println("Get your tickets here to attend.")
 }
