@@ -1,16 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var input string
-
-	fmt.Print("Please enter some text: ")
-	_, err := fmt.Scan(&input)
+	var firstName string
+	fmt.Println("Enter your first name: ")
+	_, err := fmt.Scan(&firstName)
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println("Error reading input:", err)
 		return
 	}
-
-	fmt.Println("You entered:", input)
+	fmt.Println("Hello, ", firstName)
 }
