@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"strings"
 	"Booking-App/helper"
+	"fmt"
+	"strconv"
 )
 
 // comments in go
@@ -12,7 +12,7 @@ var conferenceName = "Go Conference"
 const tickets int = 50
 
 var ticketsLeft uint = 50
-var bookings []string
+var bookings = make([]map[string]string, 0)
 
 func main() {
 
@@ -20,7 +20,7 @@ func main() {
 
 	for {
 		firstName, lastName, email, userTickets := getInput()
-		isValidName, isValidEmail, isValidTicket := helper.validateInput(firstName, lastName, email, userTickets)
+		isValidName, isValidEmail, isValidTicket := helper.ValidateInput(firstName, lastName, email, userTickets, ticketsLeft)
 		if isValidName && isValidEmail && isValidTicket {
 			bookTickets(userTickets, firstName, lastName, email)
 
@@ -54,8 +54,7 @@ func greetUser() {
 func getFirstNames() []string {
 	firstNames := []string{}
 	for _, booking := range bookings {
-		var names = strings.Fields(booking)
-		firstNames = append(firstNames, names[0])
+		firstNames = append(firstNames, booking["firstName"])
 	}
 	return firstNames
 }
@@ -83,7 +82,14 @@ func getInput() (string, string, string, uint) {
 
 func bookTickets(userTickets uint, firstName string, lastName string, email string) {
 	ticketsLeft = ticketsLeft - userTickets
-	bookings = append(bookings, firstName+" "+lastName)
+	var userData = make(map[string]string)
+
+	userData["firstName"] = firstName
+	userData["lastName"] = lastName
+	userData["email"] = email
+	userData["tickets"] = strconv.FormatUint(uint64(userTickets), 10)
+
+	bookings = append(bookings, userData)
 
 	fmt.Printf("Thank you %v %v for booking %v tickets. You'll get a confirmation email at %v \n", firstName, lastName, userTickets, email)
 	fmt.Printf("There are %v tickets remaining for %v.\n", ticketsLeft, conferenceName)
