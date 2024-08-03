@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"Booking-App/helper"
 )
 
 // comments in go
@@ -19,7 +20,7 @@ func main() {
 
 	for {
 		firstName, lastName, email, userTickets := getInput()
-		isValidName, isValidEmail, isValidTicket := validateInput(firstName, lastName, email, userTickets)
+		isValidName, isValidEmail, isValidTicket := helper.validateInput(firstName, lastName, email, userTickets)
 		if isValidName && isValidEmail && isValidTicket {
 			bookTickets(userTickets, firstName, lastName, email)
 
